@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OriginMercadoTecnia</string>
+    <string name="btnIniciar">Iniciar</string>
 </resources>
