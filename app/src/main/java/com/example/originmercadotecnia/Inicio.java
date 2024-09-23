@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class Inicio extends AppCompatActivity {
 
     Dialog dialog;
     Button btnModalExit, btnModalLog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +47,25 @@ public class Inicio extends AppCompatActivity {
         btnModalLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Presupuesto.class);
+                Bundle enviaValor = new Bundle();
+                enviaValor.putString("presupuesto", "0");
+                Intent i = new Intent(Inicio.this, Mercaderia.class);
+                i.putExtras(enviaValor);
+                Toast.makeText(Inicio.this, "presupuesto", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
                 startActivity(i);
             }
         });
 
-        Button b = (Button) findViewById(R.id.INHistorial);
+
+        Button b = (Button) findViewById(R.id.btnEmpezar);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.show();
+
+                    dialog.show();
+
+
             }
         });
 
@@ -65,4 +76,5 @@ public class Inicio extends AppCompatActivity {
         Intent i = new Intent(this, Presupuesto.class);
         startActivity(i);
     }
+
 }

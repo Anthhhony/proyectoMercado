@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -48,10 +48,11 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/btnEmpezar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/green_dark"
+            android:onClick="Mercaderia"
             android:text="@string/btnEmpezar" />
 
         <Button
@@ -60,7 +61,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/green"
             android:onClick="Presupuesto"
-            android:text="@string/btnPresupuesto" />
+            android:text="@string/btnInicioPresupuesto" />
 
         <Button
             android:id="@+id/INHistorial"

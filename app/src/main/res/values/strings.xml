@@ -2,15 +2,17 @@
     <string name="app_name">OriginMercadoTecnia</string>
     <string name="btnIniciar">Iniciar</string>
     <string name="btnEmpezar">Empezar</string>
-    <string name="btnPresupuesto">Presupuesto</string>
     <string name="btnHistorial">Historial</string>
+    <string name="btnInicioPresupuesto">Presupuesto</string>
     <string name="appbar1">Bienvenido</string>
+    <string name="appbar2">Inicio</string>
+    <string name="appbar3">Mercaderia</string>
+    <string name="appbar4">Presupuesto</string>
     <string name="Tnotes">Notas</string>
     <string name="Tienda1">Unimarc</string>
     <string name="tienda2">TOTTUS</string>
     <string name="tienda3">Lider</string>
     <string name="textBienSuper">Elige el mercado que quieras ir de compras</string>
-    <string name="appbar2">Inicio</string>
     <string name="originAppName">MercadoTecnia</string>
     <string name="InfPresupuesto1">¿Esto por que?</string>
     <string name="DesPresupuesto1">Si estableces un presupuesto, podras hacer tus compras sin preocuparte por gastar mas de lo que tu decidas</string>
@@ -19,4 +21,7 @@
     <string name="btnAceptarModal">Aceptar</string>
     <string name="btnSalirModal">Salir</string>
     <string name="InfModalEmpezar">Deseas comprar sin establecer un presupuesto?</string>
+    <string name="VistaSaldo">Saldo Total</string>
+    <string name="btnPresupuesto">Guardar</string>
+
 </resources>
