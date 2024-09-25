@@ -8,6 +8,10 @@
     <string name="appbar2">Inicio</string>
     <string name="appbar3">Mercaderia</string>
     <string name="appbar4">Presupuesto</string>
+    <string name="appbar5">Nota</string>
+    <string name="appbar6">Mas informacion</string>
+    <string name="appbar7">Historial</string>
+    <string name="appbar8">Producto</string>
     <string name="Tnotes">Notas</string>
     <string name="Tienda1">Unimarc</string>
     <string name="tienda2">TOTTUS</string>
@@ -23,5 +27,20 @@
     <string name="InfModalEmpezar">Deseas comprar sin establecer un presupuesto?</string>
     <string name="VistaSaldo">Saldo Total</string>
     <string name="btnPresupuesto">Guardar</string>
-
+    <string name="btnEditar">EDITAR</string>
+    <string name="btnEliminar">ELIMINAR</string>
+    <string name="btnGuardar">GUARDAR</string>
+    <string name="btnAgregar">AGREGAR</string>
+    <string name="btnQuitar">QUITAR</string>
+    <string name="btnComCompleta">¡¡COMPRA COMPLETA!!</string>
+    <string name="btnAhorraste">Ahorraste:</string>
+    <string name="modalNota">Seguro deseas borrar esta nota?</string>
+    <string name="titleInfoApp">Que es MercadoTecnia</string>
+    <string name="InfoApp">MercadoTecnia es una aplicacion movil capaz de ayudarte a realizar tus compras, realiza un calculo de tus compras automaticamente, y cuenta con funcionalidades capazes de gestionar tus compras y tus necesidades</string>
+    <string name="titleInfoApp2">De que va MercadoTecnia</string>
+    <string name="InfoApp2">Hay ocasiones en que la persona tiene que ir al supermercado a comprar la mercadería para su hogar, sin embargo, en este caso la persona no tiene los recursos para comprar con libertad, con la aplicación el usuario podrá registrar con el monto que tenga a la mano, y con eso definir un limite para realizar sus comprar. En que ayuda esto? proporciona a la persona un calculo de las compras sin la necesidad de terminarse pasando del presupuesto sin saberlo.</string>
+    <string name="InfoProducto">Descripcion:</string>
+    <string name="HintProductoAdd">Ingrese precio</string>
+    <string name="InfoInicioNota">¡¡ANOTA!!</string>
+    <string name="InfoInicioNota2">Haz una nota para que no te olvides de lo que vas a comprar</string>
 </resources>

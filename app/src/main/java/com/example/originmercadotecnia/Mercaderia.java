@@ -1,6 +1,8 @@
 package com.example.originmercadotecnia;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,7 +48,7 @@ public class Mercaderia extends AppCompatActivity {
 
     private void scanCode() {
         ScanOptions options = new ScanOptions();
-        options.setPrompt("Volume op to flash on");
+        options.setPrompt("Enfoque correctamente");
         options.setBeepEnabled(true);
         options.setOrientationLocked(true);
         options.setCaptureActivity(CaptureAct.class);
@@ -56,7 +58,20 @@ public class Mercaderia extends AppCompatActivity {
     ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
         if (result.getContents() != null) {
             Toast.makeText(this, result.getContents(), Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, agregarProducto.class);
+            i.putExtra("informacion", result.getContents());
+            i.putExtra("saldo", Saldo.getText().toString());
+            startActivity(i);
 
         }
     });
-}
+    public void notas(View v){
+        Intent i = new Intent(this, notas.class);
+        startActivity(i);
+    }
+    public void termino(View v) {
+        Intent i = new Intent(this, termino.class);
+        i.putExtra("saldo", Saldo.getText().toString());
+        startActivity(i);
+    };
+};

@@ -14,75 +14,59 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Inicio extends AppCompatActivity {
+public class nota extends AppCompatActivity {
 
     Dialog dialog;
-    Button btnModalExit, btnModalLog;
-
+    Button btnModalExit2, btnModalLog2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_inicio);
+        setContentView(R.layout.activity_nota);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        });
 
-        dialog = new Dialog(Inicio.this);
-        dialog.setContentView(R.layout.modal);
+
+        });
+        dialog = new Dialog(nota.this);
+        dialog.setContentView(R.layout.modal_eliminar_nota);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
-        btnModalExit = dialog.findViewById(R.id.btnModalExit);
-        btnModalLog = dialog.findViewById((R.id.btnModalLog));
+        btnModalExit2 = dialog.findViewById(R.id.btnModalExit2);
+        btnModalLog2 = dialog.findViewById((R.id.btnModalLog2));
 
-        btnModalExit.setOnClickListener(new View.OnClickListener() {
+        btnModalExit2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
             }
         });
-        btnModalLog.setOnClickListener(new View.OnClickListener() {
+        btnModalLog2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle enviaValor = new Bundle();
-                enviaValor.putString("presupuesto", "0");
-                Intent i = new Intent(Inicio.this, Mercaderia.class);
-                i.putExtras(enviaValor);
-                Toast.makeText(Inicio.this, "presupuesto", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(nota.this, notas.class);
                 dialog.dismiss();
                 startActivity(i);
             }
         });
-
-
-        Button b = (Button) findViewById(R.id.btnEmpezar);
+        Button b = (Button) findViewById(R.id.btnEliminarNote);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                    dialog.show();
-
-
+                dialog.show();
             }
         });
-
     }
-
-
-    public void Presupuesto(View v){
-        Intent i = new Intent(this, Presupuesto.class);
+    public void notas(View v){
+        Intent i = new Intent(this, notas.class);
         startActivity(i);
     }
-    public void MercaInfo(View v){
-        Intent i = new Intent(this, descripcion_app.class);
+    public void notasSave(View v){
+        Intent i = new Intent(this, notas.class);
+        Toast.makeText(this, "La nota se guardo con exito", Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
-    public void Historial(View v){
-        Intent i = new Intent(this, historial.class);
-        startActivity(i);
-    }
-
 }
