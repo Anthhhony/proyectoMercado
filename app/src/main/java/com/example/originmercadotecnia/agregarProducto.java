@@ -2,6 +2,7 @@ package com.example.originmercadotecnia;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,17 @@ public class agregarProducto extends AppCompatActivity {
         dialog.setCancelable(false);
         btnModalLog3 = dialog.findViewById((R.id.btnModalLog3));
 
+        Saldo = findViewById(R.id.saldo2);
+        Bundle paquetem = getIntent().getExtras();
+        if (paquetem!=null){
+            String valor = paquetem.getString("saldo");
+            int valorint = Integer.parseInt(valor);
+            if (valorint<0) {
+                Saldo.setTextColor(Color.RED);
+                Saldo.setText(valor);
+            }
+        }
+
         btnModalLog3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,15 +84,18 @@ public class agregarProducto extends AppCompatActivity {
                 else{
                     Intent i = new Intent(agregarProducto.this, Mercaderia.class);
                     i.putExtra("presupuesto", etText.getText().toString());
+                    i.putExtra("informacion", etText.getText().toString());
                     Bundle paquete = getIntent().getExtras();
                     if(paquete!=null){
                         String valor = paquete.getString("saldo");
+                        String info = paquete.getString("informacion");
                         Saldo = findViewById(R.id.saldo2);
                         int saldoInt = Integer.parseInt(valor);
                         int saldoresta = Integer.parseInt(etText.getText().toString());
                         int valornuevo = saldoInt - saldoresta;
                         String valorNuevoStr = String.valueOf(valornuevo);
                         i.putExtra("presupuesto", valorNuevoStr);
+                        i.putExtra("informacion", info);
                         startActivity(i);
                     }
 

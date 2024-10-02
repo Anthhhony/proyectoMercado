@@ -7,4 +7,9 @@
     <color name="opaque_light_green">#00FF4D</color>
     <color name="grey">#1F2124</color>
     <color name="black">#171718</color>
+    <color name="letraTT">#76B703</color>
+    <color name="BackGroundTT">#3D6619</color>
+    <color name="BackGroundLider">#1A2D46</color>
+    <color name="letraLider">#007AC0</color>
+
 </resources>

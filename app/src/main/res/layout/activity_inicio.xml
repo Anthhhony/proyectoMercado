@@ -48,6 +48,7 @@
         android:text="0"
         android:textColor="@color/green"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="@+id/toolbar2"
         app:layout_constraintTop_toTopOf="parent"
@@ -91,38 +92,65 @@
 
         <Button
             android:id="@+id/btnMercaInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/green"
+            android:layout_width="348dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
+            android:backgroundTint="@color/green_dark"
+            android:elevation="20dp"
             android:onClick="MercaInfo"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:text="@string/originAppName"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="34sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
+        <ImageView
             android:id="@+id/btnEmpezar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/green_dark"
-            android:onClick="Mercaderia"
-            android:text="@string/btnEmpezar" />
+            android:layout_height="170dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:clickable="true"
+            android:textAlignment="textStart"
+            app:srcCompat="@drawable/play" />
 
         <Button
             android:id="@+id/button8"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/green"
+            android:layout_height="80dp"
+            android:layout_marginBottom="6dp"
+            android:backgroundTint="@color/green_dark"
             android:onClick="Presupuesto"
-            android:text="@string/btnInicioPresupuesto" />
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
+            android:text="@string/btnInicioPresupuesto"
+            android:textColor="@color/green"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/INHistorial"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/green"
+            android:layout_height="80dp"
+            android:backgroundTint="@color/green_dark"
             android:onClick="Historial"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:text="@string/btnHistorial"
+            android:textColor="@color/green"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

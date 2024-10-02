@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,7 +73,7 @@ public class Inicio extends AppCompatActivity {
         });
 
 
-        Button b = (Button) findViewById(R.id.btnEmpezar);
+        ImageView b = (ImageView) findViewById(R.id.btnEmpezar);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

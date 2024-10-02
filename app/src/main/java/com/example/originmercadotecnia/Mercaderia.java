@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,15 +20,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
+
+import java.util.ArrayList;
 
 public class Mercaderia extends AppCompatActivity {
 
     TextView Saldo;
     Button btn_scan;
-    Dialog dialog;
-    Button btnModalLog4, btnModalExit3;
+    Dialog dialog, dialog2, dialog3;
+    Button btnModalLog4, btnModalExit3, btnModalLog5, btnModalExit4, btnModalLog6, btnModalExit5;
 
 
     @Override
@@ -54,6 +58,20 @@ public class Mercaderia extends AppCompatActivity {
         btnModalLog4 = dialog.findViewById(R.id.btnModalLog4);
         btnModalExit3 = dialog.findViewById(R.id.btnModalExit3);
 
+        dialog2 = new Dialog(Mercaderia.this);
+        dialog2.setContentView(R.layout.modal_mercado_termino);
+        dialog2.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog2.setCancelable(false);
+        btnModalLog5 = dialog2.findViewById(R.id.btnModalLog5);
+        btnModalExit4 = dialog2.findViewById(R.id.btnModalExit4);
+
+        dialog3 = new Dialog(Mercaderia.this);
+        dialog3.setContentView(R.layout.modal_presupuesto_pasado);
+        dialog3.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog3.setCancelable(false);
+        btnModalLog6 = dialog3.findViewById(R.id.btnModalLog6);
+        btnModalExit5 = dialog3.findViewById(R.id.btnModalExit5);
+
 
         Saldo = findViewById(R.id.saldo);
         Bundle recibeDatos = getIntent().getExtras();
@@ -63,10 +81,14 @@ public class Mercaderia extends AppCompatActivity {
         if (valorint<0){
             Saldo.setTextColor(Color.RED);
             Saldo.setText(valor);
+            dialog3.show();
         }
         else{
             Saldo.setTextColor(Color.GREEN);
         }
+
+
+
 
         btnModalLog4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +104,38 @@ public class Mercaderia extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+        btnModalExit4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog2.dismiss();
+            }
+        });
+
+        btnModalLog5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Mercaderia.this, termino.class);
+                i.putExtra("saldo", Saldo.getText().toString());
+                startActivity(i);
+                dialog2.dismiss();
+            }
+        });
+        btnModalExit5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog3.dismiss();
+            }
+        });
+
+        btnModalLog6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Mercaderia.this, termino.class);
+                i.putExtra("saldo", Saldo.getText().toString());
+                startActivity(i);
+                dialog3.dismiss();
+            }
+        });
 
 
         ImageView b = (ImageView) findViewById(R.id.btnMercaderiaSalir);
@@ -91,6 +145,14 @@ public class Mercaderia extends AppCompatActivity {
                 dialog.show();
             }
         });
+        FloatingActionButton t = (FloatingActionButton) findViewById(R.id.btnTermino);
+        t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog2.show();
+            }
+        });
+
     };
 
     private void scanCode() {
@@ -128,13 +190,17 @@ public class Mercaderia extends AppCompatActivity {
         Intent i = new Intent(this, Inicio.class);
         startActivity(i);
     }
+    public void producto(View v){
+        Bundle recibeDatos = getIntent().getExtras();
+        String info = recibeDatos.getString("informacion");
+        Intent i = new Intent(this, info_producto.class);
+        i.putExtra("saldo", Saldo.getText().toString());
+        i.putExtra("informacion", info);
+        startActivity(i);
+    }
     public void notas(View v){
         Intent i = new Intent(this, notas.class);
         startActivity(i);
     }
-    public void termino(View v) {
-        Intent i = new Intent(this, termino.class);
-        i.putExtra("saldo", Saldo.getText().toString());
-        startActivity(i);
-    };
+
 };
