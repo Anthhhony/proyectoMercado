@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -18,6 +19,7 @@ public class Inicio extends AppCompatActivity {
 
     Dialog dialog;
     Button btnModalExit, btnModalLog;
+    TextView Saldo;
 
 
     @Override
@@ -37,6 +39,18 @@ public class Inicio extends AppCompatActivity {
         dialog.setCancelable(false);
         btnModalExit = dialog.findViewById(R.id.btnModalExit);
         btnModalLog = dialog.findViewById((R.id.btnModalLog));
+
+        Bundle paquete = getIntent().getExtras();
+        if (paquete != null) {
+            String valor = paquete.getString("presupuesto");
+            Saldo = findViewById(R.id.saldo3);
+            Saldo.setText(valor);
+        }
+        else{
+            Saldo = findViewById(R.id.saldo3);
+            Saldo.setText("0");
+        }
+
 
         btnModalExit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,15 +76,36 @@ public class Inicio extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Saldo = findViewById(R.id.saldo3);
+                if(Saldo.getText().toString().equals("0")){
                     dialog.show();
-
-
+                }
+                else{
+                    Intent i = new Intent(Inicio.this, Mercaderia.class);
+                    i.putExtra("presupuesto", Saldo.getText().toString());
+                    startActivity(i);
+                }
             }
         });
 
     }
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            );
+        }
+    }
 
+    public void Volver(View v){
+        Intent i = new Intent(this, pantalla_principal.class);
+        startActivity(i);
+    }
 
     public void Presupuesto(View v){
         Intent i = new Intent(this, Presupuesto.class);

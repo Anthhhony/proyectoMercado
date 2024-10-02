@@ -32,6 +32,7 @@
     <string name="btnGuardar">GUARDAR</string>
     <string name="btnAgregar">AGREGAR</string>
     <string name="btnQuitar">QUITAR</string>
+    <string name="btnQuedarse">Quedarse</string>
     <string name="btnComCompleta">¡¡COMPRA COMPLETA!!</string>
     <string name="btnAhorraste">Ahorraste:</string>
     <string name="modalNota">Seguro deseas borrar esta nota?</string>
@@ -42,5 +43,8 @@
     <string name="InfoProducto">Descripcion:</string>
     <string name="HintProductoAdd">Ingrese precio</string>
     <string name="InfoInicioNota">¡¡ANOTA!!</string>
+    <string name="infoModalProducto">Tienes que añadirle un precio al producto</string>
+    <string name="Infomodalpresupuesto">Seguro quieres empezar sin agregar un presupuesto?</string>
+    <string name="Infomodalmercasalir">SI SALES PERDERAS TODO TU REGISTRO</string>
     <string name="InfoInicioNota2">Haz una nota para que no te olvides de lo que vas a comprar</string>
 </resources>

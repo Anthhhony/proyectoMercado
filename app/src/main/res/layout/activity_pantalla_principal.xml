@@ -20,13 +20,12 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:paddingLeft="24dp"
         android:text="@string/appbar1"
-        android:textColor="@color/green_dark"
+        android:textColor="@color/opaque_dark_green"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar4"
-        app:layout_constraintStart_toStartOf="@+id/toolbar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar4" />
 
     <TextView

@@ -21,13 +21,13 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:paddingLeft="24dp"
         android:text="@string/appbar8"
-        android:textColor="@color/green_dark"
-        android:textSize="36sp"
+        android:textColor="@color/opaque_dark_green"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar13"
-        app:layout_constraintStart_toStartOf="@+id/toolbar2"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar13"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -86,9 +86,11 @@
         android:text="TextView"
         android:textColor="@color/white"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView32"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar13" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar13"
+        app:layout_constraintVertical_bias="0.288" />
 
     <TextView
         android:id="@+id/textView32"
@@ -99,23 +101,22 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/view5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar13"
-        app:layout_constraintVertical_bias="0.291" />
+        app:layout_constraintVertical_bias="0.294" />
 
     <ImageView
         android:id="@+id/imageView15"
         android:layout_width="62dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="436dp"
         android:tint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView32"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.761"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar13"
-        app:layout_constraintVertical_bias="0.976"
+        app:layout_constraintVertical_bias="0.288"
         app:srcCompat="@drawable/baseline_notes_24" />
 
     <TextView
@@ -125,11 +126,11 @@
         android:text="TextView"
         android:textColor="@color/white"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editPresupuesto2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar13"
-        app:layout_constraintVertical_bias="0.464" />
+        app:layout_constraintTop_toBottomOf="@+id/textView32"
+        app:layout_constraintVertical_bias="0.51" />
 
     <EditText
         android:id="@+id/editPresupuesto2"
@@ -145,7 +146,7 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintHorizontal_bias="0.744"
         app:layout_constraintStart_toStartOf="@+id/view5"
         app:layout_constraintTop_toBottomOf="@+id/toolbar13"
         app:layout_constraintVertical_bias="0.72" />
@@ -158,26 +159,26 @@
         android:layout_marginBottom="164dp"
         android:tint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editPresupuesto2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar13"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/baseline_attach_money_24" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnAgregarProducto"
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/black"
-        android:onClick="Add"
         android:text="@string/btnAgregar"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="@+id/view5"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnQuitarProducto"
         android:layout_width="124dp"
         android:layout_height="61dp"
         android:layout_marginStart="36dp"

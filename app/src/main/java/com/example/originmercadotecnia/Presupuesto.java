@@ -35,14 +35,35 @@ public class Presupuesto extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle enviaValor = new Bundle();
-                enviaValor.putString("presupuesto", etEnviar.getText().toString());
-                Intent i = new Intent(Presupuesto.this, Mercaderia.class);
-                i.putExtras(enviaValor);
-                Toast.makeText(Presupuesto.this, etEnviar.getText(), Toast.LENGTH_SHORT).show();
-                startActivity(i);
+                if (etEnviar.getText()!=null) {
+                    Bundle enviaValor = new Bundle();
+                    enviaValor.putString("presupuesto", etEnviar.getText().toString());
+                    Intent i = new Intent(Presupuesto.this, Inicio.class);
+                    i.putExtras(enviaValor);
+                    Toast.makeText(Presupuesto.this, etEnviar.getText(), Toast.LENGTH_SHORT).show();
+                    startActivity(i);
+                }
+                else {
+                    Toast.makeText(Presupuesto.this, "No hay valor", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            );
+        }
+    }
+    public void Volver(View v){
+        Intent i = new Intent(this, Inicio.class);
+        startActivity(i);
     }
 
 }

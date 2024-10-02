@@ -1,8 +1,12 @@
 package com.example.originmercadotecnia;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +19,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class agregarProducto extends AppCompatActivity {
 
     TextView Saldo, Producto, TProducto;
+    EditText etText;
+    Dialog dialog;
+    Button btnModalLog3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,21 @@ public class agregarProducto extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        etText = findViewById(R.id.editPresupuesto2);
+
+        dialog = new Dialog(agregarProducto.this);
+        dialog.setContentView(R.layout.modal1btn);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        btnModalLog3 = dialog.findViewById((R.id.btnModalLog3));
+
+        btnModalLog3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
         Bundle paquete = getIntent().getExtras();
         if (paquete != null) {
             String valor = paquete.getString("saldo");
@@ -39,14 +61,51 @@ public class agregarProducto extends AppCompatActivity {
             Producto.setText(info);
 
         };
+        Button b = (Button) findViewById(R.id.btnAgregarProducto);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (etText.getText().toString().isEmpty()) {
+                    dialog.show();
+
+                }
+                else{
+                    Intent i = new Intent(agregarProducto.this, Mercaderia.class);
+                    i.putExtra("presupuesto", etText.getText().toString());
+                    Bundle paquete = getIntent().getExtras();
+                    if(paquete!=null){
+                        String valor = paquete.getString("saldo");
+                        Saldo = findViewById(R.id.saldo2);
+                        int saldoInt = Integer.parseInt(valor);
+                        int saldoresta = Integer.parseInt(etText.getText().toString());
+                        int valornuevo = saldoInt - saldoresta;
+                        String valorNuevoStr = String.valueOf(valornuevo);
+                        i.putExtra("presupuesto", valorNuevoStr);
+                        startActivity(i);
+                    }
+
+
+                }
+            }
+        });
     }
-    public void Add(View v){
-        Intent i = new Intent(this, Mercaderia.class);
-        startActivity(i);
-    }
-    public void Quit(View v){
-        Intent i = new Intent(this, Mercaderia.class);
-        startActivity(i);
-    }
+        public void onWindowFocusChanged(boolean hasFocus) {
+            super.onWindowFocusChanged(hasFocus);
+            if (hasFocus) {
+                getWindow().getDecorView().setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                );
+            }
+        }
+
+        public void Quit(View v){
+            Intent i = new Intent(agregarProducto.this, Mercaderia.class);
+            i.putExtra("presupuesto", Saldo.getText().toString());
+            startActivity(i);
+        }
     }
 
