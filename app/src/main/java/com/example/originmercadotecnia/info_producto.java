@@ -65,15 +65,17 @@ public class info_producto extends AppCompatActivity {
                     Intent i = new Intent(info_producto.this, Mercaderia.class);
                     Bundle paquete = getIntent().getExtras();
                     if(paquete!=null){
-                        //String info = paquete.getString("informacion");
+                        String info = paquete.getString("informacion");
                         String valor = paquete.getString("saldo");
+                        String vp = paquete.getString("valor");
                         Saldo = findViewById(R.id.saldo4);
                         int saldoInt = Integer.parseInt(valor);
-                        int precio = 300;
-                        int valornuevo = saldoInt + precio;
+                        int vpint = Integer.parseInt(vp);
+                        int valornuevo = saldoInt + vpint;
                         String valorNuevoStr = String.valueOf(valornuevo);
                         i.putExtra("presupuesto", valorNuevoStr);
-                        //i.putExtra("informacion", valorNuevoStr);
+                        i.putExtra("informacion", "");
+                        i.putExtra("vproductos","delete");
                         startActivity(i);
 
 
@@ -84,6 +86,7 @@ public class info_producto extends AppCompatActivity {
     public void Volver(View v){
         Intent i = new Intent(info_producto.this, Mercaderia.class);
         i.putExtra("presupuesto", Saldo.getText().toString());
+        i.putExtra("vproductos","none");
         startActivity(i);
     }
 }

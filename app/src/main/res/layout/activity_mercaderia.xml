@@ -81,6 +81,32 @@
         app:layout_constraintTop_toBottomOf="@+id/saldo"
         app:layout_constraintVertical_bias="0.0" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:clickable="true"
+        android:onClick="notas"
+        app:backgroundTint="@color/green"
+        app:fabCustomSize="70dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintVertical_bias="0.927"
+        app:maxImageSize="45dp"
+        app:srcCompat="@drawable/baseline_note_24" />
+
+    <ListView
+        android:id="@+id/ListaProducto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_scan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6" />
+
     <Button
         android:id="@+id/btn_scan"
         android:layout_width="wrap_content"
@@ -108,23 +134,6 @@
         app:maxImageSize="40dp"
         app:srcCompat="@drawable/baseline_done_24" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:clickable="true"
-        android:onClick="notas"
-        app:backgroundTint="@color/green"
-        app:fabCustomSize="70dp"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view6"
-        app:layout_constraintVertical_bias="0.502"
-        app:maxImageSize="45dp"
-        app:srcCompat="@drawable/baseline_note_24" />
-
     <ImageView
         android:id="@+id/btnMercaderiaSalir"
         android:layout_width="36dp"
@@ -136,19 +145,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/grey"
-        android:onClick="producto"
-        android:text="Infromacion sobre el producto"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

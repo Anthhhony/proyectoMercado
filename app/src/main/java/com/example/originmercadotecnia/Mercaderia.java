@@ -1,11 +1,14 @@
 package com.example.originmercadotecnia;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -14,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -28,10 +32,15 @@ import java.util.ArrayList;
 
 public class Mercaderia extends AppCompatActivity {
 
+    private ArrayList<Producto> listado;
+
+
     TextView Saldo;
     Button btn_scan;
     Dialog dialog, dialog2, dialog3;
     Button btnModalLog4, btnModalExit3, btnModalLog5, btnModalExit4, btnModalLog6, btnModalExit5;
+
+
 
 
     @Override
@@ -153,6 +162,10 @@ public class Mercaderia extends AppCompatActivity {
             }
         });
 
+        ListView l = (ListView) findViewById(R.id.ListaProducto);
+        Adaptador adaptador = new Adaptador(this, cargar_datos());
+        l.setAdapter(adaptador);
+
     };
 
     private void scanCode() {
@@ -166,7 +179,6 @@ public class Mercaderia extends AppCompatActivity {
 
     ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
         if (result.getContents() != null) {
-            Toast.makeText(this, result.getContents(), Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, agregarProducto.class);
             i.putExtra("informacion", result.getContents());
             i.putExtra("saldo", Saldo.getText().toString());
@@ -174,6 +186,51 @@ public class Mercaderia extends AppCompatActivity {
 
         }
     });
+
+    public ArrayList<Producto> cargar_datos(){
+        Bundle recibeDatos = getIntent().getExtras();
+        if (recibeDatos!=null){
+            String info = recibeDatos.getString("informacion");
+            String v = recibeDatos.getString("vproductos");
+
+
+
+            if (v!=null){
+
+                if ((v.equals("delete"))) {
+                    Toast.makeText(this, "eliminado", Toast.LENGTH_SHORT).show();
+                    listado = new ArrayList<>();
+                    return listado;
+                }
+                else if ((v.equals("none"))) {
+                    listado = new ArrayList<>();
+                    return listado;
+                }
+                else{
+                    int saldoInt = Integer.parseInt(v);
+                    listado = new ArrayList<>();
+                    listado.add(new Producto(saldoInt,info));
+                    return listado;
+                }
+
+            }
+            else{
+                listado = new ArrayList<>();
+                return listado;
+            }
+
+            //int saldoInt = Integer.parseInt(v);
+
+
+        }
+        else {
+            listado = new ArrayList<>();
+            return listado;
+        }
+    }
+
+
+
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
@@ -193,9 +250,12 @@ public class Mercaderia extends AppCompatActivity {
     public void producto(View v){
         Bundle recibeDatos = getIntent().getExtras();
         String info = recibeDatos.getString("informacion");
+        String vp = recibeDatos.getString("vproductos");
         Intent i = new Intent(this, info_producto.class);
         i.putExtra("saldo", Saldo.getText().toString());
         i.putExtra("informacion", info);
+        i.putExtra("valor", vp);
+        //i.putExtra("vproducto",);
         startActivity(i);
     }
     public void notas(View v){

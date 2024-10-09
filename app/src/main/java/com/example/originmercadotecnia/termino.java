@@ -32,7 +32,6 @@ public class termino extends AppCompatActivity {
         Bundle paquete = getIntent().getExtras();
         if (paquete != null) {
             String valor = paquete.getString("saldo");
-            Toast.makeText(this, valor, Toast.LENGTH_SHORT).show();
             SaldoF = findViewById(R.id.saldoFinal);
             textAhorro = findViewById(R.id.textAhorrado);
             Symbol = findViewById(R.id.SymbolDolarAhorrado);

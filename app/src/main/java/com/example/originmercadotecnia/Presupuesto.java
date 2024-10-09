@@ -40,7 +40,6 @@ public class Presupuesto extends AppCompatActivity {
                     enviaValor.putString("presupuesto", etEnviar.getText().toString());
                     Intent i = new Intent(Presupuesto.this, Inicio.class);
                     i.putExtras(enviaValor);
-                    Toast.makeText(Presupuesto.this, etEnviar.getText(), Toast.LENGTH_SHORT).show();
                     startActivity(i);
                 }
                 else {

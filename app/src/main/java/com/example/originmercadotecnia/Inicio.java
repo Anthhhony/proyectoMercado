@@ -66,7 +66,6 @@ public class Inicio extends AppCompatActivity {
                 enviaValor.putString("presupuesto", "0");
                 Intent i = new Intent(Inicio.this, Mercaderia.class);
                 i.putExtras(enviaValor);
-                Toast.makeText(Inicio.this, "presupuesto", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
                 startActivity(i);
             }

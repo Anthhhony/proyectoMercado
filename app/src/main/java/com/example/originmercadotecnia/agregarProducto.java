@@ -64,7 +64,6 @@ public class agregarProducto extends AppCompatActivity {
         if (paquete != null) {
             String valor = paquete.getString("saldo");
             String info = paquete.getString("informacion");
-            Toast.makeText(this, valor, Toast.LENGTH_SHORT).show();
             Saldo = findViewById(R.id.saldo2);
             Producto = findViewById(R.id.InfoProduct);
             TProducto = findViewById(R.id.TitleInfoProduct);
@@ -94,8 +93,10 @@ public class agregarProducto extends AppCompatActivity {
                         int saldoresta = Integer.parseInt(etText.getText().toString());
                         int valornuevo = saldoInt - saldoresta;
                         String valorNuevoStr = String.valueOf(valornuevo);
+
                         i.putExtra("presupuesto", valorNuevoStr);
                         i.putExtra("informacion", info);
+                        i.putExtra("vproductos", etText.getText().toString());
                         startActivity(i);
                     }
 
