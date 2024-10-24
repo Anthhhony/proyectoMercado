@@ -6,8 +6,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +27,10 @@ public class agregarProducto extends AppCompatActivity {
     EditText etText;
     Dialog dialog;
     Button btnModalLog3;
+
+
+    String[] item = {"UNIMARC", "LIDER", "JUMBO", "TOTTUS"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +60,8 @@ public class agregarProducto extends AppCompatActivity {
                 Saldo.setText(valor);
             }
         }
+
+
 
         btnModalLog3.setOnClickListener(new View.OnClickListener() {
             @Override

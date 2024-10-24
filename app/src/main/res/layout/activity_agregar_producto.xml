@@ -81,8 +81,8 @@
 
     <TextView
         android:id="@+id/TitleInfoProduct"
-        android:layout_width="373dp"
-        android:layout_height="120dp"
+        android:layout_width="332dp"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
         android:textColor="@color/white"
@@ -91,7 +91,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar13"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.552" />
 
     <TextView
         android:id="@+id/textView32"
@@ -161,6 +161,7 @@
         android:tint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editPresupuesto2"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar13"
         app:layout_constraintVertical_bias="1.0"
@@ -190,5 +191,19 @@
         android:textColor="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/auto_complete_txt"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="180dp"
+        android:layout_height="67dp"
+        android:text="Select Item"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/TitleInfoProduct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar13"
+        app:layout_constraintVertical_bias="0.464" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
