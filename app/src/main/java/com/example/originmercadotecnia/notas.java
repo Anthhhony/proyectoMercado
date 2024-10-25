@@ -46,17 +46,23 @@ public class notas extends AppCompatActivity {
         listado = new ArrayList<>();
 
         ListView l = (ListView) findViewById(R.id.listaNotas);
-        Adaptador_notas adaptador = new Adaptador_notas(this, cargar_datos());
+        Adaptador_notas adaptador = new Adaptador_notas(this, cargar_datos(new FirebaseCallback() {
+            @Override
+            public void onCallback(ArrayList<Nota_ind> listado) {
+                // Aquí puedes actualizar la interfaz de usuario, el adaptador o la lista
+                Adaptador_notas adaptador = new Adaptador_notas(notas.this, listado);
+                ListView l = findViewById(R.id.listaNotas);
+                l.setAdapter(adaptador);
+            }
+        }));
         l.setAdapter(adaptador);
 
 
     }
 
 
-    public ArrayList<Nota_ind> cargar_datos(){
-
-
-
+    public ArrayList<Nota_ind> cargar_datos(FirebaseCallback callback){
+        listado.clear();
         db.collection("Notas")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -64,12 +70,9 @@ public class notas extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                listado = new ArrayList<>();
-                                listado.add(new Nota_ind(document.getId(), ""));
-                                Toast.makeText(notas.this, document.getId(), Toast.LENGTH_SHORT).show();
-
-
+                                listado.add(new Nota_ind(document.getString("TituloNota"), ""));
                             }
+                            callback.onCallback(listado);
 
                         } else {
                             Toast.makeText(notas.this, "No se pudo cargar", Toast.LENGTH_SHORT).show();
@@ -77,6 +80,9 @@ public class notas extends AppCompatActivity {
                     }
                 });
         return listado;
+    }
+    public interface FirebaseCallback {
+        void onCallback(ArrayList<Nota_ind> listado);
     }
 
 
