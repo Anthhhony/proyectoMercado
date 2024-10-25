@@ -56,28 +56,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnEliminarNote"
-                    android:layout_width="202dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/black"
-                    android:text="@string/btnEliminar"
-                    android:textColor="@android:color/holo_red_dark" />
-
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/black"
-                    android:text="@string/btnEditar"
-                    android:textColor="@color/green" />
-            </LinearLayout>
-
             <EditText
                 android:id="@+id/TituloNota"
                 android:layout_width="match_parent"

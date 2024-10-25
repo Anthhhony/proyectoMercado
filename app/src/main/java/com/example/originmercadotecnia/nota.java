@@ -122,13 +122,7 @@ public class nota extends AppCompatActivity {
             }
         });
 
-        Button b = (Button) findViewById(R.id.btnEliminarNote);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.show();
-            }
-        });
+
 
         /**/
 

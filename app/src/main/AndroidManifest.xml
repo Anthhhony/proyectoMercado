@@ -17,6 +17,9 @@
         android:theme="@style/Theme.OriginMercadoTecnia"
         tools:targetApi="31">
         <activity
+            android:name=".visualizar_nota"
+            android:exported="false" />
+        <activity
             android:name=".info_producto"
             android:exported="false" />
         <activity

@@ -63,7 +63,7 @@ public class notas extends AppCompatActivity {
                 // Obtener el documento en la posición seleccionada
                 Nota_ind notaSeleccionada = listado.get(position);
                 // Ejemplo: Iniciar una nueva actividad con los datos de la nota
-                Intent intent = new Intent(notas.this, nota.class);
+                Intent intent = new Intent(notas.this, visualizar_nota.class);
                 intent.putExtra("titulo", notaSeleccionada.getNombre());
                 intent.putExtra("descripcion", notaSeleccionada.getDescripcion());
                 Toast.makeText(notas.this, notaSeleccionada.getDescripcion(), Toast.LENGTH_SHORT).show();
