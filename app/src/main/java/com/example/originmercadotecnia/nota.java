@@ -108,6 +108,8 @@ public class nota extends AppCompatActivity {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Toast.makeText(nota.this, "Se Pudo", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(nota.this, notas.class);
+                            startActivity(i);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

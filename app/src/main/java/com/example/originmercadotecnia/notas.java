@@ -54,7 +54,8 @@ public class notas extends AppCompatActivity {
 
 
     public ArrayList<Nota_ind> cargar_datos(){
-        listado = new ArrayList<>();
+
+
 
         db.collection("Notas")
                 .get()
@@ -63,8 +64,10 @@ public class notas extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
+                                listado = new ArrayList<>();
                                 listado.add(new Nota_ind(document.getId(), ""));
                                 Toast.makeText(notas.this, document.getId(), Toast.LENGTH_SHORT).show();
+
 
                             }
 

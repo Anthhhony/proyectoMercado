@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,11 +25,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Mercaderia extends AppCompatActivity {
 
@@ -39,7 +46,7 @@ public class Mercaderia extends AppCompatActivity {
     Button btn_scan;
     Dialog dialog, dialog2, dialog3;
     Button btnModalLog4, btnModalExit3, btnModalLog5, btnModalExit4, btnModalLog6, btnModalExit5;
-
+    FirebaseFirestore firestore;
 
 
 
@@ -129,6 +136,7 @@ public class Mercaderia extends AppCompatActivity {
                 dialog2.dismiss();
             }
         });
+
         btnModalExit5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
