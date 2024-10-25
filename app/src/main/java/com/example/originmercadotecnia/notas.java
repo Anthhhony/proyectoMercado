@@ -62,13 +62,11 @@ public class notas extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Obtener el documento en la posición seleccionada
                 Nota_ind notaSeleccionada = listado.get(position);
-
-
                 // Ejemplo: Iniciar una nueva actividad con los datos de la nota
                 Intent intent = new Intent(notas.this, nota.class);
                 intent.putExtra("titulo", notaSeleccionada.getNombre());
                 intent.putExtra("descripcion", notaSeleccionada.getDescripcion());
-                Toast.makeText(notas.this, notaSeleccionada.getNombre(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(notas.this, notaSeleccionada.getDescripcion(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
@@ -86,7 +84,7 @@ public class notas extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                listado.add(new Nota_ind(document.getString("TituloNota"), ""));
+                                listado.add(new Nota_ind(document.getString("TituloNota"), document.getString("descripcion")));
                             }
                             callback.onCallback(listado);
 
