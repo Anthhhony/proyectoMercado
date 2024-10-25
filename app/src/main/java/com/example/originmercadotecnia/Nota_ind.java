@@ -2,9 +2,11 @@ package com.example.originmercadotecnia;
 
 public class Nota_ind {
     private String nombre;
+    private String descripcion;
 
-    public Nota_ind(String nombre) {
+    public Nota_ind(String nombre, String descripcion) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {
@@ -13,5 +15,12 @@ public class Nota_ind {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

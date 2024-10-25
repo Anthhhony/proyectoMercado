@@ -19,6 +19,9 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Firebase;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,6 +35,8 @@ public class nota extends AppCompatActivity {
     Button btnModalExit2, btnModalLog2, btnModalLog3;
     EditText etTitle, etDescripcion;
     FirebaseFirestore firestore;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     
 
 
@@ -126,6 +131,9 @@ public class nota extends AppCompatActivity {
         /**/
 
     }
+
+
+
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
