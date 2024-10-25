@@ -3,6 +3,7 @@ package com.example.originmercadotecnia;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -56,6 +57,21 @@ public class notas extends AppCompatActivity {
             }
         }));
         l.setAdapter(adaptador);
+        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Obtener el documento en la posición seleccionada
+                Nota_ind notaSeleccionada = listado.get(position);
+
+
+                // Ejemplo: Iniciar una nueva actividad con los datos de la nota
+                Intent intent = new Intent(notas.this, nota.class);
+                intent.putExtra("titulo", notaSeleccionada.getNombre());
+                intent.putExtra("descripcion", notaSeleccionada.getDescripcion());
+                Toast.makeText(notas.this, notaSeleccionada.getNombre(), Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
 
 
     }
