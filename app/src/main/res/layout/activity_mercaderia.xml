@@ -81,23 +81,6 @@
         app:layout_constraintTop_toBottomOf="@+id/saldo"
         app:layout_constraintVertical_bias="0.0" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:clickable="true"
-        android:onClick="notas"
-        app:backgroundTint="@color/green"
-        app:fabCustomSize="70dp"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view6"
-        app:layout_constraintVertical_bias="0.927"
-        app:maxImageSize="45dp"
-        app:srcCompat="@drawable/baseline_note_24" />
-
     <ListView
         android:id="@+id/ListaProducto"
         android:layout_width="0dp"

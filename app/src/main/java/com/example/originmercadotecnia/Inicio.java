@@ -119,5 +119,9 @@ public class Inicio extends AppCompatActivity {
         Intent i = new Intent(this, historial.class);
         startActivity(i);
     }
+    public void Notas(View v){
+        Intent i = new Intent(this, notas.class);
+        startActivity(i);
+    }
 
 }

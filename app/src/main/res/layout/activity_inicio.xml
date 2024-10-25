@@ -136,6 +136,21 @@
             android:textSize="24sp" />
 
         <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="6dp"
+            android:backgroundTint="@color/green_dark"
+            android:onClick="Notas"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
+            android:text="@string/Tnotes"
+            android:textColor="@color/green"
+            android:textSize="24sp" />
+
+        <Button
             android:id="@+id/INHistorial"
             android:layout_width="match_parent"
             android:layout_height="80dp"

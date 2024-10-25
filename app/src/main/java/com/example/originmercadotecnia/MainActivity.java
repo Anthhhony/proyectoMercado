@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login(View v){
-        Intent i = new Intent(this, pantalla_principal.class);
+        Intent i = new Intent(this, Inicio.class);
         startActivity(i);
     }
 }

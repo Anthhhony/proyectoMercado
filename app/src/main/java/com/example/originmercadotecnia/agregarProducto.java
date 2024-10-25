@@ -27,9 +27,9 @@ public class agregarProducto extends AppCompatActivity {
     EditText etText;
     Dialog dialog;
     Button btnModalLog3;
+    Spinner supermercados;
 
 
-    String[] item = {"UNIMARC", "LIDER", "JUMBO", "TOTTUS"};
 
 
     @Override
@@ -61,7 +61,11 @@ public class agregarProducto extends AppCompatActivity {
             }
         }
 
+        supermercados = (Spinner) findViewById(R.id.id_spinner);
 
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.supermercados, android.R.layout.simple_spinner_item);
+
+        supermercados.setAdapter(adapter);
 
         btnModalLog3.setOnClickListener(new View.OnClickListener() {
             @Override

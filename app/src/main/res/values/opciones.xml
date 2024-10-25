@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="supermercados">
+        <item>Unimarc</item>
+        <item>Lider</item>
+        <item>TOTTUS</item>
+        <item>Jumbo</item>
+    </string-array>
+
+</resources>
