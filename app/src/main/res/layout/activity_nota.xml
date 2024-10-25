@@ -79,7 +79,7 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/TituloNota"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:ems="10"
@@ -89,7 +89,7 @@
                 android:textSize="30dp" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine2"
+                android:id="@+id/DescripcionNota"
                 android:layout_width="match_parent"
                 android:layout_height="341dp"
                 android:background="@color/black"

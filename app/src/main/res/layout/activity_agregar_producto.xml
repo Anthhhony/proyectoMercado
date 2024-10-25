@@ -196,8 +196,8 @@
     <Spinner
         android:id="@+id/id_spinner"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="187dp"
-        android:layout_height="38dp"
+        android:layout_width="169dp"
+        android:layout_height="51dp"
         android:padding="10sp"
         android:text="Select Item"
         android:textColor="@color/white"

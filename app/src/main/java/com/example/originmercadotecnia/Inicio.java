@@ -103,7 +103,7 @@ public class Inicio extends AppCompatActivity {
     }
 
     public void Volver(View v){
-        Intent i = new Intent(this, pantalla_principal.class);
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
 

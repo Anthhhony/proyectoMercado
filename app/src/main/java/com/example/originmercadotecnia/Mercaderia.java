@@ -193,8 +193,6 @@ public class Mercaderia extends AppCompatActivity {
             String info = recibeDatos.getString("informacion");
             String v = recibeDatos.getString("vproductos");
 
-
-
             if (v!=null){
 
                 if ((v.equals("delete"))) {
@@ -220,7 +218,6 @@ public class Mercaderia extends AppCompatActivity {
             }
 
             //int saldoInt = Integer.parseInt(v);
-
 
         }
         else {

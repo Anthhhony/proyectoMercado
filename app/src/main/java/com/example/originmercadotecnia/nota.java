@@ -6,18 +6,34 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Firebase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
 public class nota extends AppCompatActivity {
 
-    Dialog dialog;
-    Button btnModalExit2, btnModalLog2;
+    Dialog dialog, dialog2;
+    Button btnModalExit2, btnModalLog2, btnModalLog3;
+    EditText etTitle, etDescripcion;
+    FirebaseFirestore firestore;
+    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +54,20 @@ public class nota extends AppCompatActivity {
         btnModalExit2 = dialog.findViewById(R.id.btnModalExit2);
         btnModalLog2 = dialog.findViewById((R.id.btnModalLog2));
 
+        dialog2 = new Dialog(nota.this);
+        dialog2.setContentView(R.layout.modal1btn);
+        dialog2.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog2.setCancelable(false);
+        btnModalLog3 = dialog2.findViewById(R.id.btnModalLog3);
+        firestore = FirebaseFirestore.getInstance();
+
         btnModalExit2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
             }
         });
+
         btnModalLog2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +76,45 @@ public class nota extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        btnModalLog3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog2.dismiss();
+            }
+        });
+
+        etTitle = findViewById(R.id.TituloNota);
+        etDescripcion = findViewById(R.id.DescripcionNota);
+
+        Button bsave = (Button) findViewById(R.id.btnGuardarNote);
+        bsave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (etTitle.getText().toString().isEmpty() && etDescripcion.getText().toString().isEmpty()) {
+                    dialog2.show();
+                }
+                else{
+                    Map<String,Object> notaobj = new HashMap<>();
+                    notaobj.put("TituloNota",etTitle.getText().toString());
+                    notaobj.put("descripcion",etDescripcion.getText().toString());
+
+                    firestore.collection("Notas").add(notaobj).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(nota.this, "Se Pudo", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(nota.this, "No se pudo", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+            }
+        });
+
         Button b = (Button) findViewById(R.id.btnEliminarNote);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +122,9 @@ public class nota extends AppCompatActivity {
                 dialog.show();
             }
         });
+
+        /**/
+
     }
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -76,13 +142,11 @@ public class nota extends AppCompatActivity {
         Intent i = new Intent(this, notas.class);
         startActivity(i);
     }
-    public void notasSave(View v){
-        Intent i = new Intent(this, notas.class);
-        Toast.makeText(this, "La nota se guardo con exito", Toast.LENGTH_SHORT).show();
-        startActivity(i);
-    }
+
     public void Volver(View v){
-        Intent i = new Intent(this, notas.class);
-        startActivity(i);
+        Intent intent = new Intent(this, notas.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

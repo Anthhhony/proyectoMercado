@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.qr.scanner)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

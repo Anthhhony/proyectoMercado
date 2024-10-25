@@ -3,6 +3,7 @@ package com.example.originmercadotecnia;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +11,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class notas extends AppCompatActivity {
+
+    private ArrayList<Nota_ind> listado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +27,18 @@ public class notas extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        ListView l = (ListView) findViewById(R.id.listaNotas);
+        Adaptador_notas adaptador = new Adaptador_notas(this, cargar_datos());
+        l.setAdapter(adaptador);
     }
+
+    public ArrayList<Nota_ind> cargar_datos(){
+        listado = new ArrayList<>();
+        listado.add(new Nota_ind("nota1"));
+        return listado;
+    }
+
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
@@ -40,6 +56,9 @@ public class notas extends AppCompatActivity {
         startActivity(i);
     }
     public void Volver(View v){
-        finish();
+        Intent intent = new Intent(this, Inicio.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();  // Finaliza Activity1
     }
 }

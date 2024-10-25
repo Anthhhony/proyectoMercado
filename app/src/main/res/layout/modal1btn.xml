@@ -20,10 +20,10 @@
         android:id="@+id/textView27"
         android:layout_width="234dp"
         android:layout_height="110dp"
-        android:text="@string/infoModalProducto"
+        android:text="@string/CamposVacios"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/view8"
         app:layout_constraintEnd_toEndOf="@+id/view8"
         app:layout_constraintHorizontal_bias="0.478"
@@ -33,13 +33,14 @@
 
     <ImageView
         android:id="@+id/imageView26"
-        android:layout_width="90dp"
-        android:layout_height="67dp"
+        android:layout_width="111dp"
+        android:layout_height="89dp"
         android:tint="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="@+id/view8"
         app:layout_constraintEnd_toEndOf="@+id/view8"
         app:layout_constraintStart_toStartOf="@+id/view8"
         app:layout_constraintTop_toTopOf="@+id/view8"
+        app:layout_constraintVertical_bias="0.482"
         app:srcCompat="@drawable/baseline_error_24" />
 
     <Button

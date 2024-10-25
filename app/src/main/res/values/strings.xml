@@ -45,7 +45,7 @@
     <string name="InfoProducto">Descripcion:</string>
     <string name="HintProductoAdd">Ingrese precio</string>
     <string name="InfoInicioNota">¡¡ANOTA!!</string>
-    <string name="infoModalProducto">Tienes que añadirle un precio al producto</string>
+    <string name="CamposVacios">Campos vacios</string>
     <string name="Infomodalpresupuesto">Seguro quieres empezar sin agregar un presupuesto?</string>
     <string name="Infomodalmercasalir">SI SALES PERDERAS TODO TU REGISTRO</string>
     <string name="InfomodalMercaTermino">Seguro deseas terminar de comprar?</string>
